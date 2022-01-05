@@ -29,4 +29,6 @@ docker run --rm -v "$(PWD):/var/task" lambci/lambda:build-python3.8 pip install 
     - 「互換性のあるランタイム」を「python3.8」
 - lambda関数作成
   - レイヤーに対象レイヤーのARN貼り付ける
+    - psycopg2のレイヤーも必要だが、下記を参照に追加
+    - https://qiita.com/Bacchus/items/db0750865d1c597e1dc0
   - ハンドラーを「handler」に変更
