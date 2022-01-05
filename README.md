@@ -21,10 +21,12 @@ mangum自体はpipでインストール可能だが、Lambdaではpipの使用�
   - 初回だけイメージpullに時間がかかるが、2回目以降はしないので早くなる
 
 ```docker
-docker run --rm -v "$(PWD):/var/task":/var/task lambci/lambda:build-python3.8 pip install -r ./requirements.txt -t python/lib/python3.8/site-packages/
+docker run --rm -v "$(PWD):/var/task" lambci/lambda:build-python3.8 pip install -r ./requirements.txt -t python/lib/python3.8/site-packages/
 ```
 - マウント先に「python」フォルダができているのでzipする
 - lambda開いて、レイヤーに追加（多分S3経由かな）
+    - 「互換性のあるアーキテクチャ」を「x86_64」
+    - 「互換性のあるランタイム」を「python3.8」
 - lambda関数作成
   - レイヤーに対象レイヤーのARN貼り付ける
   - ハンドラーを「handler」に変更
