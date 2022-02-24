@@ -8,12 +8,14 @@
 
 ## LambdaでFastAPIを使うにあたって
 
-- FastAPIをLambdaで使用するには「mangum」を使う必要がある。  
+- FastAPIをLambdaで使用するには「mangum」を使う必要がある。
   - mangum・・・AWS Lambda＆APIGatewayでASGIアプリケーションを使用するためのアダプタ。
-- mangum自体はpipでインストール可能だが、Lambdaではpipの使用ができないため、下記の方法でパッケージを追加する必要あり。
+- mangum自体はpipでインストール可能だが、Lambdaではpipの使用ができないため、下記の方法でライブラリーを追加する必要あり。
   - パッケージデプロイ
   - レイヤーで追加
 - 今回は「レイヤーで追加」を行い、備忘録も兼ねて下記にまとめた（雑に書いているので清書予定）
+  - Lambda Layersを使った追加方法についての記事を作成。
+    - https://qiita.com/subretu/items/2a0c40326cc857e63922
 
 ### Lambdaレイヤーへの追加方法
 
@@ -22,7 +24,7 @@
   - ローカルでpipインストールしてzipではダメやった
 - WindowsでのDockerのインストール方法は省略
 - 下記コマンドを実行
-  - requirements.txtに必要なモジュールを記載しておく
+  - requirements.txtに必要なライブラリーを記載しておく
   - 初回だけイメージpullに時間がかかるが、2回目以降はしないので早くなる
 
 ```docker
